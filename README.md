@@ -11,5 +11,6 @@ Realizaremos una aplicación mediante la cual el usuario tiene permitido **agreg
 # Tecnologias a utilizar
 * Vite + React
 * JSX
-* HTML y CSS
+* HTML 
+* CSS
 
