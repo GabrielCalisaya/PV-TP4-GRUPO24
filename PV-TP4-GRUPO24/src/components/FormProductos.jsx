@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import '../styles/style.css'
 
 const FormProducto = ({ onAgregar }) => {
     const [datosFormulario, setDatosFormulario] = useState({
@@ -35,9 +36,10 @@ const FormProducto = ({ onAgregar }) => {
     }, [datosFormulario, onAgregar]);
 
     return (
-        <div className="formulario-producto">
-            <h2>Agregar Nuevo Producto</h2>
-            <form onSubmit={manejarEnvio}>
+            <form className="formulario-producto" onSubmit={manejarEnvio}>
+                <h2>Agregar Nuevo Producto</h2>
+                
+            <div className="contenedor-campos">
                 <div className="grupo-formulario">
                     <label htmlFor="id">ID:</label>
                     <input type="text" id="id" name="id" value={datosFormulario.id} onChange={manejarCambio} required />
@@ -52,15 +54,18 @@ const FormProducto = ({ onAgregar }) => {
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="descuento">Descuento (%):</label>
-                    <input type="number" id="descuento" name="descuento" value={datosFormulario.descuento} onChange={manejarCambio} min="0" max="100" />
+                    <input className='inputDescuento' type="number" id="descuento" name="descuento" value={datosFormulario.descuento} onChange={manejarCambio} min="0" max="100" />
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="stock">Stock:</label>
                     <input type="number" id="stock" name="stock" value={datosFormulario.stock} onChange={manejarCambio} required />
                 </div>
+           </div>     
+
                 <button type="submit">Agregar Producto</button>
+            
             </form>
-        </div>
+        
     );
 };
 
