@@ -1,5 +1,4 @@
 import React from 'react';
-
 const TablaProductos = ({ productos }) => {
     if (!productos || productos.length === 0) {
         return <p>No hay productos agregados.</p>;
