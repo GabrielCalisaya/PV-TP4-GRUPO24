@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*ESTILOS QUE APLICAN PARA TODA LA WEB*/
+*{
+  font-family: "Nunito", sans-serif; 
+  justify-content: center;
+  text-align: center; 
+}
+
+/*ESTILOS PARA EL FORMULARIO*/
+
+form {
+    background-color: antiquewhite;
+  max-width: 60%;
+  margin: 0 auto;
+  min-height: 15rem;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  border: 1px solid gray;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+form button{
+    padding: .3rem;
+    border: none;
+    border-radius: .4rem;
+    background-color: cadetblue;
+    font-weight: 700;
+    height: 2rem;
+    color: whitesmoke;
+}
+
+form button:hover {
+  background-color: green;
+}
+
+
+.contenedor-campos {
+  display: grid; /* Activa Grid para el contenedor de los campos */
+  grid-template-columns: 1fr 1fr; /* La primera columna se ajusta al contenido (labels), la segunda ocupa el resto (inputs) */
+  gap: 0.5rem; /* Espacio entre filas (entre cada label-input par) y columnas */
+  margin-bottom: 1rem;
+}
+
+.grupo-formulario {
+  display: contents; /* Permite que label e input se posicionen directamente en la grid del padre */
+}
+
+.grupo-formulario label {
+  font-weight: bold;
+  text-align: left; /* Alinea el texto de la etiqueta a la izquierda */
+}
+
+.grupo-formulario{
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  width: 100%; 
+}
+
+
