@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TablaProductos = ({ productos, onModificar, onEliminar }) => {
+const TablaProductos = ({ productos, onModificar, onEliminar }) =>
   const [modoEdicionId, setModoEdicionId] = useState(null);
   const [productoEditado, setProductoEditado] = useState({});
 
@@ -41,7 +41,6 @@ const TablaProductos = ({ productos, onModificar, onEliminar }) => {
             <th>Precio con Descuento</th>
             <th>Stock</th>
             <th>Acciones</th> {/* columna agrefada */}
-            <th> Acciones </th> 
           </tr>
         </thead>
         <tbody>

@@ -87,7 +87,7 @@ function Producto() {
     },
     [productos]
   )
- return (
+  return (
     <div className="contenedor-producto">
       <h1>Stock de Productos</h1>
       <FormularioProducto onAgregar={agregarProducto} />
