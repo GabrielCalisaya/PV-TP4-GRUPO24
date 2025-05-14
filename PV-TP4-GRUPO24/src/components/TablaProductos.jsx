@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TablaProductos = ({ productos, onModificar }) => {
+const TablaProductos = ({ productos, onModificar, onEliminar }) =>
   const [modoEdicionId, setModoEdicionId] = useState(null);
   const [productoEditado, setProductoEditado] = useState({});
 
@@ -102,6 +102,7 @@ const TablaProductos = ({ productos, onModificar }) => {
                   <button onClick={() => activarEdicion(producto)}>Modificar</button>
                 )}
               </td>
+              <td><button onClick={() => onEliminar(producto.id)}>Eliminar</button></td>
             </tr>
           ))}
         </tbody>

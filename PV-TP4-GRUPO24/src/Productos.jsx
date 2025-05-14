@@ -77,13 +77,23 @@ function Producto() {
   };
   // fin de lo agregado para modificar producto
 
+  const eliminarProducto = useCallback(
+    (idAEliminar) => {
+      const nuevosProductos = productos.filter(
+        (producto) => producto.id !== idAEliminar
+      );
+      setProductos(nuevosProductos);
+      setProductosOriginales(nuevosProductos);
+    },
+    [productos]
+  )
   return (
     <div className="contenedor-producto">
       <h1>Stock de Productos</h1>
       <FormularioProducto onAgregar={agregarProducto} />
       <BarraBuscar onBuscar={buscarProducto} />
       {/* se pasa onModificar como prop */}
-      <TablaProductos productos={productos} onModificar={modificarProducto} />
+      <TablaProductos productos={productos} onModificar={modificarProducto} onEliminar={eliminarProducto} />
     </div>
   );
 }
