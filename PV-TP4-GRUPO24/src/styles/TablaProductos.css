@@ -1,18 +1,52 @@
 /*Le damos estilo a la tabla que aparecerá según se vayan ingresando los productos*/
 .tabla-productos-contenedor{
-    margin: 1rem auto 0 auto;
-    background-color: whitesmoke;
-    border: .1rem solid black;
-    border-radius: 5rem 0 5rem 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1.7rem;
-    width: 60%;
-}
-
-th, td{
+    margin: 1.5rem auto 0 auto;
+    background-color: whitesmoke;
+    max-width: 85%;
+    padding: 1.5rem;
+    border-radius: 1rem;
     border: 1px solid black;
-    padding: .3rem;
+
 }
 
+th {
+  padding: 0.2rem;
+  text-align: center;
+  border-bottom: 1.5px solid black;
+  /* Define anchos fijos para cada columna */
+  width: 10%; /* Ajusta este valor según necesites */
+}
+
+td {
+  padding: 0.2rem;
+  text-align: left; 
+  width: 10%; 
+}
+
+td input[type="text"],
+td input[type="number"] {
+  max-width: 6rem; /* O un valor específico si prefieres */
+  padding: 0.2rem;
+  box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el ancho total */
+}
+
+.botonModificar,
+.botonEliminar{
+    border: none;
+}
+
+.botonModificar button{
+    background-color: rgb(51, 51, 253);
+    color: white;
+    padding: .4rem;
+    border-radius: 1rem;
+}
+
+.botonEliminar button{
+    background-color: rgb(245, 36, 36);
+    color: white;
+    padding: .4rem;
+    border-radius: 1rem;
+}
