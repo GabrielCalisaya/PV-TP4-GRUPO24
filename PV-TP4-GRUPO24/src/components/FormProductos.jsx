@@ -42,7 +42,7 @@ const FormProducto = ({ onAgregar }) => {
             <div className="contenedor-campos">
                 <div className="grupo-formulario">
                     <label htmlFor="id">ID:</label>
-                    <input type="text" id="id" name="id" value={datosFormulario.id} onChange={manejarCambio} required />
+                    <input type="number" id="id" name="id" value={datosFormulario.id} onChange={manejarCambio} required />
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="descripcion">Descripción:</label>
