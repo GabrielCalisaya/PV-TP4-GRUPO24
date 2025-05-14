@@ -54,11 +54,6 @@ function Producto() {
     setProductos(productosFiltrados);
   };
 
-  const eliminarProducto = (idProducto) => {
-    const nuevoArreglo = productos.filter((producto) => producto.id !== idProducto) // tiene todos los productos menos el que coincide con el id que recibimos como parametro
-    setProductos(nuevoArreglo)
-  }
-
   useEffect(() => {
     console.log("Lista de productos actualizada:", productos);
   }, [productos]);
@@ -68,7 +63,7 @@ function Producto() {
       <h1>Stock de Productos</h1>
       <FormularioProducto onAgregar={agregarProducto} />
       <BarraBuscar onBuscar={buscarProducto} />
-      <TablaProductos productos={productos} eliminarProducto={eliminarProducto} />
+      <TablaProductos productos={productos} />
     </div>
   );
 }

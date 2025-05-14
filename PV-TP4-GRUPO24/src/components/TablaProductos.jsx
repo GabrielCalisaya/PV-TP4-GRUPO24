@@ -1,5 +1,5 @@
 import React from 'react';
-const TablaProductos = ({ productos, eliminarProducto }) => {
+const TablaProductos = ({ productos }) => {
     if (!productos || productos.length === 0) {
         return <p>No hay productos agregados.</p>;
     }
@@ -16,8 +16,6 @@ const TablaProductos = ({ productos, eliminarProducto }) => {
                         <th>Descuento (%)</th>
                         <th>Precio con Descuento</th>
                         <th>Stock</th>
-                        {/* se agrega columna nueva para manejar y eliminar producto */}
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,8 +27,6 @@ const TablaProductos = ({ productos, eliminarProducto }) => {
                             <td>{producto.descuento}</td>
                             <td>{producto.precioConDescuento.toFixed(2)}</td>
                             <td>{producto.stock}</td>
-                            {/* se agrega button para eliminar cada producto */}
-                            <td><button onClick={() => eliminarProducto(producto.id)}>Eliminar</button> </td>
                         </tr>
                     ))}
                 </tbody>
