@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TablaProductos = ({ productos, onModificar, onEliminar }) =>
+const TablaProductos = ({ productos, onModificar, onEliminar }) =>{
   const [modoEdicionId, setModoEdicionId] = useState(null);
   const [productoEditado, setProductoEditado] = useState({});
 
