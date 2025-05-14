@@ -11,9 +11,9 @@
 /*ESTILOS PARA EL FORMULARIO*/
 
 form {
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   font-weight: 700;
-  max-width: 40%;
+  max-width: 45%;
   margin: 0 auto;
   min-height: 15rem;
   padding: 1rem;
@@ -57,4 +57,4 @@ form input{
 
 /*FIN DE ESTILOS PARA EL FORMULARIO*/
 
-/*ESTILO PARA BARRA DE BÚSQUEDA*/
+

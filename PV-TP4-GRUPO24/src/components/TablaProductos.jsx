@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/TablaProductos.css';
 const TablaProductos = ({ productos }) => {
     if (!productos || productos.length === 0) {
         return <p>No hay productos agregados.</p>;
@@ -24,8 +25,8 @@ const TablaProductos = ({ productos }) => {
                             <td>{producto.id}</td>
                             <td>{producto.descripcion}</td>
                             <td>{producto.precioUnitario}</td>
-                            <td>{producto.descuento}</td>
-                            <td>{producto.precioConDescuento.toFixed(2)}</td>
+                            <td>{producto.descuento + "%"}</td>
+                            <td>{"$" + producto.precioConDescuento.toFixed(2)}</td>
                             <td>{producto.stock}</td>
                         </tr>
                     ))}

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import '../styles/style.css'
+import '../styles/FormProductos.css'
 
 const FormProducto = ({ onAgregar }) => {
     const [datosFormulario, setDatosFormulario] = useState({

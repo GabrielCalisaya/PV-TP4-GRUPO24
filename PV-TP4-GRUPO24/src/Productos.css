@@ -1,0 +1,4 @@
+/*Le damos una altura minima al body de forma que la pagina tenga un poco de scroll*/
+body{
+    min-height: 220vh;
+}

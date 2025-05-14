@@ -1,0 +1,18 @@
+/*Le damos estilo a la tabla que aparecerá según se vayan ingresando los productos*/
+.tabla-productos-contenedor{
+    margin: 1rem auto 0 auto;
+    background-color: whitesmoke;
+    border: .1rem solid black;
+    border-radius: 5rem 0 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.7rem;
+    width: 60%;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: .3rem;
+}
+
