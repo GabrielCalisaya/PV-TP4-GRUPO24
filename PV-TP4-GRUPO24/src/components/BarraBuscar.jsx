@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/barraBuscar.css';
 function BarraBuscar({ onBuscar }) {
     const [busqueda, setBusqueda] = useState("");
     const [buscarPorId, setBuscarPorId] = useState(false);

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
+import '../styles/TablaProductos.css'
 const TablaProductos = ({ productos, onModificar, onEliminar }) =>{
   const [modoEdicionId, setModoEdicionId] = useState(null);
   const [productoEditado, setProductoEditado] = useState({});
-
+  
   if (!productos || productos.length === 0) {
     return <p>No hay productos agregados.</p>;
   }
@@ -40,7 +41,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar }) =>{
             <th>Descuento (%)</th>
             <th>Precio con Descuento</th>
             <th>Stock</th>
-            <th>Acciones</th> {/* columna agrefada */}
+            <th>Acciones</th> {/* columna agregada */}
           </tr>
         </thead>
         <tbody>
@@ -95,14 +96,14 @@ const TablaProductos = ({ productos, onModificar, onEliminar }) =>{
                   producto.stock
                 )}
               </td>
-              <td>
+              <td className='botonModificar'>
                 {modoEdicionId === producto.id ? (
                   <button onClick={guardarCambios}>Guardar</button>
                 ) : (
                   <button onClick={() => activarEdicion(producto)}>Modificar</button>
                 )}
               </td>
-              <td><button onClick={() => onEliminar(producto.id)}>Eliminar</button></td>
+              <td className='botonEliminar'><button onClick={() => onEliminar(producto.id)}>Eliminar</button></td>
             </tr>
           ))}
         </tbody>

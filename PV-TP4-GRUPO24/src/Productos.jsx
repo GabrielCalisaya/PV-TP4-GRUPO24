@@ -56,6 +56,18 @@ function Producto() {
     setProductos(productosFiltrados);
   };
 
+   const buscarPorTipo = (tipoBusqueda) => {
+    if (!tipoBusqueda) {
+      setProductos(productosOriginales); // Restablece la lista original si no hay búsqueda
+      return;
+    }
+
+    const productosFiltradosPorTipo = productosOriginales.filter((producto) =>
+      producto.tipo.toLowerCase().includes(tipoBusqueda.toLowerCase())
+    );
+    setProductos(productosFiltradosPorTipo);
+  };
+
   useEffect(() => {
     console.log("Lista de productos actualizada:", productos);
   }, [productos]);
