@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import FormularioProducto from "./components/FormProductos";
 import TablaProductos from "./components/TablaProductos"; // importa el nuevo componente
 import BarraBuscar from "./components/BarraBuscar";
+import "./Productos.css";
 
 function Producto() {
   const [productosOriginales, setProductosOriginales] = useState([]);
