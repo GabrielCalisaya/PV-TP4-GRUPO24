@@ -4,9 +4,9 @@ import '../styles/style.css'
 const FormProducto = ({ onAgregar }) => {
     const [datosFormulario, setDatosFormulario] = useState({
         id: '',
-        descripcion2: '',
+        descripcion: '',
         precioUnitario: '',
-        descuento2: '',
+        descuento: '',
         stock: '',
     });
 
