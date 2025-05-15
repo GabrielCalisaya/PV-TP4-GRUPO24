@@ -8,6 +8,8 @@ function Producto() {
   const [productosOriginales, setProductosOriginales] = useState([]);
   const [productos, setProductos] = useState([]);
 
+//Prueba
+  const Prueba = 0;
   const agregarProducto = useCallback(
     (nuevoProducto) => {
       const idExiste = productos.some(
