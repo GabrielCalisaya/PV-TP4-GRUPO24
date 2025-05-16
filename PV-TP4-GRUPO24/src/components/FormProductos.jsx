@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import '../styles/FormProductos.css'
 
 const FormProducto = ({ onAgregar }) => {
@@ -42,7 +42,7 @@ const FormProducto = ({ onAgregar }) => {
             <div className="contenedor-campos">
                 <div className="grupo-formulario">
                     <label htmlFor="id">ID:</label>
-                    <input type="number" id="id" name="id" value={datosFormulario.id} onChange={manejarCambio} required />
+                    <input type="number" id="id" name="id" value={datosFormulario.id} onChange={manejarCambio} min="1" required />
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="descripcion">Descripción:</label>
@@ -50,17 +50,17 @@ const FormProducto = ({ onAgregar }) => {
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="precioUnitario">Precio Unitario:</label>
-                    <input type="number" id="precioUnitario" name="precioUnitario" value={datosFormulario.precioUnitario} onChange={manejarCambio} required />
+                    <input type="number" id="precioUnitario" name="precioUnitario" value={datosFormulario.precioUnitario} onChange={manejarCambio} min="0" required />
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="descuento">Descuento (%):</label>
-                    <input className='inputDescuento' type="number" id="descuento" name="descuento" value={datosFormulario.descuento} onChange={manejarCambio} min="0" max="100" />
+                    <input className='inputDescuento' type="number" id="descuento" name="descuento" value= {datosFormulario.descuento} onChange={manejarCambio} min="0" max="100" />
                 </div>
                 <div className="grupo-formulario">
                     <label htmlFor="stock">Stock:</label>
-                    <input type="number" id="stock" name="stock" value={datosFormulario.stock} onChange={manejarCambio} required />
+                    <input type="number" id="stock" name="stock" value={datosFormulario.stock} onChange={manejarCambio} min="0" required />
                 </div>
-           </div>     
+            </div>     
 
                 <button type="submit">Agregar Producto</button>
             
