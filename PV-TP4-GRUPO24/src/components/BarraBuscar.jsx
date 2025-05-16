@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import '../styles/barraBuscar.css';
+
 function BarraBuscar({ onBuscar }) {
     const [busqueda, setBusqueda] = useState("");
     const [buscarPorId, setBuscarPorId] = useState(false);
 
-    const cambioBuscar = (e) => {
-        setBusqueda(e.target.value.trim()); //guarda el valor de busqueda
-
-        // si encuentra onBuscar como parametro realiza la busqueda
-        if (onBuscar){
-            onBuscar(e.target.value.trim(),buscarPorId);
-        }
-};
-const cambioCheckbox = (e) => {
-        setBuscarPorId(!buscarPorId); // Alterna entre buscar por id o descripción
+    const cambioBusqueda = (e) => {
+        const valor = e.target.value;
+        setBusqueda(valor);
         if (onBuscar) {
-            onBuscar(busqueda, !buscarPorId); // se niega buscarPorId porque el useState no es instantaneo
+            onBuscar(valor, buscarPorId);
         }
     };
 
+    const cambioCheckbox = () => {
+        setBuscarPorId((prev) => {
+            const nuevoValor = !prev;
+            if (onBuscar) {
+                onBuscar(busqueda, nuevoValor);
+            }
+            return nuevoValor; // nuevo valor de buscarPorId
+        });
+    };
 
     return (
         <div className="barraBuscar">
@@ -27,16 +30,19 @@ const cambioCheckbox = (e) => {
                 placeholder={buscarPorId ? "Buscar ID" : "Buscar Descripción"}
                 id="inputBuscar"
                 value={busqueda}
-                onChange={cambioBuscar}
+                onChange={cambioBusqueda}
             />
             <label htmlFor="checkboxBuscarId">
                 <input
-                type="checkbox"
-                id="checkboxBuscarId"
-                onChange={cambioCheckbox}
-                />Buscar Por ID
+                    type="checkbox"
+                    id="checkboxBuscarId"
+                    checked={buscarPorId}
+                    onChange={cambioCheckbox}
+                />
+                Buscar Por ID
             </label>
         </div>
     );
 }
+
 export default BarraBuscar;

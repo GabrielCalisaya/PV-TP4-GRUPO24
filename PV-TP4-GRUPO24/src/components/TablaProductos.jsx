@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import '../styles/TablaProductos.css'
 const TablaProductos = ({ productos, onModificar, onEliminar }) =>{
