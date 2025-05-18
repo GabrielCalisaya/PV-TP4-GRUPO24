@@ -11,17 +11,16 @@
 /*ESTILOS PARA EL FORMULARIO*/
 
 form {
-  background-color: whitesmoke;
+  background: linear-gradient(125deg, rgb(252, 239, 157), #fff);
   font-weight: 700;
   max-width: 45%;
   margin: 0 auto;
   min-height: 15rem;
   padding: 1rem;
   border-radius: 5rem 0 5rem 0;
-  border: 1px solid black;
+  border: 5px solid rgb(248, 242, 164);
   margin-bottom: 1.5rem;
 }
-
 form h2 {
   text-align: center;
   margin-bottom: 1rem;
@@ -32,14 +31,14 @@ form button{
     padding: .3rem;
     border: none;
     border-radius: .4rem;
-    background-color: cadetblue;
+    background-color: rgb(84, 169, 172);
     font-weight: 700;
     height: 2rem;
     color: whitesmoke;
 }
 
 form button:hover {
-  background-color: green;
+  background-color: rgb(30, 150, 90);
 }
 
 form input{

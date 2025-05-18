@@ -21,11 +21,13 @@ function Producto() {
         return;
       }
 
+      //  cálculo de precioConDescuento 
       const nuevoProductoConDescuento = {
         ...nuevoProducto,
         precioConDescuento:
           nuevoProducto.precioUnitario * (1 - nuevoProducto.descuento / 100),
       };
+      //cambio
 
       setProductosOriginales((productosAnteriores) => [
         ...productosAnteriores,
@@ -35,31 +37,28 @@ function Producto() {
     [productosOriginales]
   );
 
-  // useMemo para filtrar productos solo cuando cambian las dependencias
   const productosFiltrados = useMemo(() => {
-  if (!busqueda) 
-    {
-      return productosOriginales
-    }
-  else {
-      return productosOriginales.filter((producto) => {
-    if (buscarPorId) {
-      return producto.id.startsWith(busqueda);
+    if (!busqueda) {
+      return productosOriginales;
     } else {
-      return producto.descripcion.toLowerCase().includes(busqueda.toLowerCase());
+      return productosOriginales.filter((producto) => {
+        if (buscarPorId) {
+          return producto.id.startsWith(busqueda);
+        } else {
+          //  búsqueda por nombre (antes era descripción)
+          return producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
+          // cambio
+        }
+      });
     }
-  });
-  }
-  
-}, [productosOriginales, busqueda, buscarPorId]);
+  }, [productosOriginales, busqueda, buscarPorId]);
 
-  // Recibe los cambios de la barra de búsqueda
   const cambioBuscar = (valorBusqueda, valorBuscarPorId) => {
     setBusqueda(valorBusqueda);
     setBuscarPorId(valorBuscarPorId);
   };
 
-  // Modificar producto
+  // recalcula el precioConDescuento al modificar producto
   const modificarProducto = (productoEditado) => {
     const nuevosProductos = productosOriginales.map((producto) =>
       producto.id === productoEditado.id
@@ -73,17 +72,19 @@ function Producto() {
     );
     setProductosOriginales(nuevosProductos);
   };
+  // 
 
-  // Eliminar producto
+  //  eliminación lógica con estado: false 
   const eliminarProducto = useCallback(
     (idAEliminar) => {
-      const nuevosProductos = productosOriginales.filter(
-        (producto) => producto.id !== idAEliminar
+      const nuevosProductos = productosOriginales.map((producto) =>
+        producto.id === idAEliminar ? { ...producto, estado: false } : producto
       );
       setProductosOriginales(nuevosProductos);
     },
     [productosOriginales]
   );
+  // cambios
 
   return (
     <div className="contenedor-producto">
@@ -93,7 +94,9 @@ function Producto() {
         <BarraBuscar onBuscar={cambioBuscar} />
       )}
       <TablaProductos
-        productos={productosFiltrados}
+        //  solo mostrar productos con estado !== false ====
+        productos={productosFiltrados.filter(p => p.estado !== false)}
+        // cambio
         onModificar={modificarProducto}
         onEliminar={eliminarProducto}
       />
