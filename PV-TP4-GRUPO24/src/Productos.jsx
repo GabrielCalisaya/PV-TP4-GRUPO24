@@ -1,8 +1,9 @@
-import { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from 'react';
 import FormularioProducto from "./components/FormProductos";
 import TablaProductos from "./components/TablaProductos";
 import BarraBuscar from "./components/BarraBuscar";
 import "./Productos.css";
+import { ProductosEliminados } from "./components/ProductosEliminados";
 
 function Producto() {
   const [productosOriginales, setProductosOriginales] = useState([]);
@@ -15,9 +16,7 @@ function Producto() {
         (producto) => producto.id === nuevoProducto.id
       );
       if (idExiste) {
-        alert(
-          `El ID "${nuevoProducto.id}" ya existe. Por favor, ingrese un ID diferente.`
-        );
+        alert(`El ID ${nuevoProducto.id} ya existe, Por favor, ingrese un ID diferente.`);
         return;
       }
 
@@ -63,11 +62,11 @@ function Producto() {
     const nuevosProductos = productosOriginales.map((producto) =>
       producto.id === productoEditado.id
         ? {
-            ...productoEditado,
-            precioConDescuento:
-              productoEditado.precioUnitario *
-              (1 - productoEditado.descuento / 100),
-          }
+          ...productoEditado,
+          precioConDescuento:
+            productoEditado.precioUnitario *
+            (1 - productoEditado.descuento / 100),
+        }
         : producto
     );
     setProductosOriginales(nuevosProductos);
@@ -100,6 +99,7 @@ function Producto() {
         onModificar={modificarProducto}
         onEliminar={eliminarProducto}
       />
+      <ProductosEliminados productosEliminados={productosFiltrados.filter(prod => prod.estado !== true)} ></ProductosEliminados>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import '../styles/TablaProductos.css';
 
-const TablaProductos = ({ productos, onModificar, onEliminar }) => {
+// Se agrego prop para verificar de donde es llamado el componente y asi renderizar unas columnas u otras
+const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = false }) => {
   const [modoEdicion, setModoEdicion] = useState(null);
   const [productoEditado, setProductoEditado] = useState({});
 
@@ -37,105 +38,114 @@ const TablaProductos = ({ productos, onModificar, onEliminar }) => {
   };
 
   return (
-    <table className="tabla-productos">
-      <thead>
-        <tr>
-          <th>ID</th>
-          {/*'Nombre' en vez de 'Descripción' */}
-          <th>Nombre</th>
-         
-          {/*  INICIO COLUMNA NUEVA Marca */}
-          <th>Marca</th>
-          <th>Precio Unitario</th>
-          <th>Descuento (%)</th>
-          <th>Precio con Descuento</th>
-          <th>Stock</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {productos.map((producto) => (
-          <tr key={producto.id}>
-            <td>{producto.id}</td>
+    <>
+      <table className="tabla-productos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            {/*'Nombre' en vez de 'Descripción' */}
+            <th>Nombre</th>
 
-            {modoEdicion === producto.id ? (
-              <>
-                {/*INPUTS EN MODO EDICIÓN */}
-                <td>
-                  <input
-                    type="text"
-                    name="nombre"
-                    value={productoEditado.nombre}
-                    onChange={manejarCambio}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    name="marca"
-                    value={productoEditado.marca}
-                    onChange={manejarCambio}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    name="precioUnitario"
-                    value={productoEditado.precioUnitario}
-                    onChange={manejarCambio}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    name="descuento"
-                    value={productoEditado.descuento}
-                    onChange={manejarCambio}
-                  />
-                </td>
-                <td>{(productoEditado.precioUnitario * (1 - productoEditado.descuento / 100)).toFixed(2)}</td>
-                <td>
-                  <input
-                    type="number"
-                    name="stock"
-                    value={productoEditado.stock}
-                    onChange={manejarCambio}
-                  />
-                </td>
-                {/* INPUTS EN MODO EDICIÓN  */}
-              </>
-            ) : (
-              <>
-              
-                <td>{producto.nombre}</td>
-                <td>{producto.marca}</td>
-                <td>${producto.precioUnitario.toFixed(2)}</td>
-                <td>{producto.descuento}%</td>
-                <td>${producto.precioConDescuento.toFixed(2)}</td>
-                <td>{producto.stock}</td>
-               
-              </>
+            {/*  INICIO COLUMNA NUEVA Marca */}
+            <th>Marca</th>
+            <th>Precio Unitario</th>
+            <th>Descuento (%)</th>
+            <th>Precio con Descuento</th>
+            <th>Stock</th>
+            {!sonEliminados && (
+
+              <th>Acciones</th>
             )}
+          </tr>
+        </thead>
+        <tbody>
+          {productos.length > 0 ? productos.map((producto) => (
+            <tr key={producto.id}>
+              <td>{producto.id}</td>
 
-            <td>
               {modoEdicion === producto.id ? (
                 <>
-                  <button onClick={guardarCambios}>Guardar</button>
-                  <button onClick={cancelarEdicion}>Cancelar</button>
+                  {/*INPUTS EN MODO EDICIÓN */}
+                  <td>
+                    <input
+                      type="text"
+                      name="nombre"
+                      value={productoEditado.nombre}
+                      onChange={manejarCambio}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="marca"
+                      value={productoEditado.marca}
+                      onChange={manejarCambio}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="precioUnitario"
+                      value={productoEditado.precioUnitario}
+                      onChange={manejarCambio}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      name="descuento"
+                      value={productoEditado.descuento}
+                      onChange={manejarCambio}
+                    />
+                  </td>
+                  <td>{(productoEditado.precioUnitario * (1 - productoEditado.descuento / 100)).toFixed(2)}</td>
+                  <td>
+                    <input
+                      type="number"
+                      name="stock"
+                      value={productoEditado.stock}
+                      onChange={manejarCambio}
+                    />
+                  </td>
+                  {/* INPUTS EN MODO EDICIÓN  */}
                 </>
               ) : (
                 <>
-                  <button onClick={() => activarEdicion(producto)}>Modificar</button>
-                  {/*  se usa onEliminar por estado (no se borra del array)  */}
-                  <button onClick={() => onEliminar(producto.id)}>Eliminar</button>
-                 
+
+                  <td>{producto.nombre}</td>
+                  <td>{producto.marca}</td>
+                  <td>${producto.precioUnitario.toFixed(2)}</td>
+                  <td>{producto.descuento}%</td>
+                  <td>${producto.precioConDescuento.toFixed(2)}</td>
+                  <td>{producto.stock}</td>
+
                 </>
               )}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+
+              <td>
+                {modoEdicion === producto.id ? (
+                  <>
+                    <button onClick={guardarCambios}>Guardar</button>
+                    <button onClick={cancelarEdicion}>Cancelar</button>
+                  </>
+                ) : !sonEliminados && (
+                  <>
+                    <button onClick={() => activarEdicion(producto)}>Modificar</button>
+                    {/*  se usa onEliminar por estado (no se borra del array)  */}
+                    <button onClick={() => onEliminar(producto.id)}>Eliminar</button>
+
+                  </>
+                )}
+              </td>
+            </tr>
+          )) : (
+            <h2 className='notFound'>No se encontraron productos..</h2>
+          )}
+        </tbody>
+      </table>
+
+
+    </>
   );
 };
 
