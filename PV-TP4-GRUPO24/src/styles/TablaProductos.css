@@ -1,4 +1,3 @@
-/*Le damos estilo a la tabla que aparecerá según se vayan ingresando los productos*/
 .tabla-productos-contenedor{
     display: flex;
     flex-direction: column;
@@ -49,4 +48,35 @@ td input[type="number"] {
     color: white;
     padding: .4rem;
     border-radius: 1rem;
+}
+
+.notFound {
+  text-align: center;
+  position: absolute;
+  width: 90%;
+  font-size: large;
+  color: rgb(217, 106, 106);
+}
+
+.buttonElementsDeleted{
+  margin-top: 100px;
+ 
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.buttonElementsDeleted button{
+ padding: 7px;
+ font-size: large;
+ border-radius: 8px;
+ color: white;
+ outline: none;
+ border: none;
+ cursor: pointer;
+ background-color: rgb(41, 41, 222);
+ box-shadow: inset;
+}
+.buttonElementsDeleted button:hover {
+  background-color: rgb(90, 90, 205);
 }
