@@ -65,8 +65,10 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
 
               {modoEdicion === producto.id ? (
                 <>
+                  <div className='container-edicion'>
+
                   {/*INPUTS EN MODO EDICIÓN */}
-                  <td>
+                  <td className='td-edicion'>
                     <input
                       type="text"
                       name="nombre"
@@ -74,7 +76,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
                       onChange={manejarCambio}
                     />
                   </td>
-                  <td>
+                  <td className='td-edicion'>
                     <input
                       type="text"
                       name="marca"
@@ -82,7 +84,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
                       onChange={manejarCambio}
                     />
                   </td>
-                  <td>
+                  <td className='td-edicion'>
                     <input
                       type="number"
                       name="precioUnitario"
@@ -90,7 +92,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
                       onChange={manejarCambio}
                     />
                   </td>
-                  <td>
+                  <td className='td-edicion'>
                     <input
                       type="number"
                       name="descuento"
@@ -98,8 +100,8 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
                       onChange={manejarCambio}
                     />
                   </td>
-                  <td>{(productoEditado.precioUnitario * (1 - productoEditado.descuento / 100)).toFixed(2)}</td>
-                  <td>
+                  <td className='td-edicion'>{(productoEditado.precioUnitario * (1 - productoEditado.descuento / 100)).toFixed(2)}</td>
+                  <td className='td-edicion td-stock'>
                     <input
                       type="number"
                       name="stock"
@@ -108,6 +110,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
                     />
                   </td>
                   {/* INPUTS EN MODO EDICIÓN  */}
+                </div>
                 </>
               ) : (
                 <>
@@ -125,14 +128,14 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
               <td>
                 {modoEdicion === producto.id ? (
                   <>
-                    <button onClick={guardarCambios}>Guardar</button>
-                    <button onClick={cancelarEdicion}>Cancelar</button>
+                    <button className='botonGuardar' onClick={guardarCambios}>Guardar</button>
+                    <button className='botonCancelar' onClick={cancelarEdicion}>Cancelar</button>
                   </>
                 ) : !sonEliminados && (
                   <>
-                    <button onClick={() => activarEdicion(producto)}>Modificar</button>
+                    <button className='botonModificar' onClick={() => activarEdicion(producto)}>Modificar</button>
                     {/*  se usa onEliminar por estado (no se borra del array)  */}
-                    <button onClick={() => onEliminar(producto.id)}>Eliminar</button>
+                    <button className='botonEliminar' onClick={() => onEliminar(producto.id)}>Eliminar</button>
 
                   </>
                 )}
