@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import FormularioProducto from "./components/FormProductos";
 import TablaProductos from "./components/TablaProductos";
 import BarraBuscar from "./components/BarraBuscar";
-import "./Productos.css";
+import "./styles/Productos.css"
 import { ProductosEliminados } from "./components/ProductosEliminados";
 
 function Producto() {
