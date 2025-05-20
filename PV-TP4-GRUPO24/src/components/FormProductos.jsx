@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import '../styles/FormProductos.css';
 const FormProductos = ({ onAgregar }) => {
   //  aqui tan los campos nuevos y renombrados
@@ -11,7 +11,6 @@ const FormProductos = ({ onAgregar }) => {
     stock: '',
     estado: true,
   });
-  //
 
   const manejarCambio = (evento) => {
     const { name, value } = evento.target;
