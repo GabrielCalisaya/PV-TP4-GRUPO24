@@ -15,7 +15,7 @@ export const ProductosEliminados = ({ productosEliminados }) => {
             </div>
             {/* Rehuso de componente TablaProductos */}
             {abrirProductosEliminados && (
-                <TablaProductos productos={productosEliminados} sonEliminados={true} ></TablaProductos>
+                <TablaProductos  productos={productosEliminados} sonEliminados={true} ></TablaProductos>
             )}
 
         </>
