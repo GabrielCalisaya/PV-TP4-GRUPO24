@@ -113,3 +113,10 @@ td input[type="number"] {
   margin-right: 4.5rem;
 }
 
+
+
+
+.tabla-eliminados thead th {
+  width: 0;
+  display: none;
+}

@@ -39,7 +39,7 @@ const TablaProductos = ({ productos, onModificar, onEliminar, sonEliminados = fa
 
   return (
     <>
-      <table className="tabla-productos">
+      <table className={`tabla-productos ${sonEliminados ? 'tabla-eliminados' : ''}`}>
         <thead>
           <tr>
             <th>ID</th>

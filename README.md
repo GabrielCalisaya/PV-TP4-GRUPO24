@@ -1,5 +1,6 @@
 # PV-TP4-GRUPO4
-Realizaremos una aplicación mediante la cual el usuario tiene permitido *agregar un producto*, *buscar un producto*, *modificar un producto* y *eliminar un producto*. Un formato similar al Trabajo Práctico N3.
+Realizamos una aplicación mediante la cual el usuario tiene permitido *agregar un producto*, *buscar un producto*, *modificar un producto* y *eliminar un producto*. Un formato similar al Trabajo Práctico N3.
+Con respecto a *eliminar un producto* no solo lo quita de la lista con los demás productos sino que lo envía a una nueva lista donde se encuentran los productos eliminados, dicha lista se hizo reutilizando el componente TablaProductos.
 
 # Participantes
 + BACA, Juan Sebastián (juansebaca)
@@ -8,7 +9,7 @@ Realizaremos una aplicación mediante la cual el usuario tiene permitido *agrega
 + ROMERO, Fernando (Android)
 + SUÁREZ, Natali (natalicmk)
 
-# Tecnologias a utilizar
+# Tecnologias utilizadas
 + Vite + React
 + JSX
 + HTML
